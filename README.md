@@ -2,6 +2,8 @@
 
 Accompanying repository to the paper "Demystifying Funding: Reconstructing a Unified Dataset of the UK Funding Lifecycle", published at NSLP 2026. The database integrates data from the [UKRI Gateway to Research (GtR) API](https://gtr.ukri.org/), [UKRI Panel Meetings and Attendance](https://github.com/wrmthorne/UKRI-Panel-Meetings-and-Attendance), and UKRI funding opportunity pages into a unified structure. To our knowledge this is the first time these sources have been brought together, completing the UKRI funding lifecycle.
 
+A backup of the database can be downloaded form [Zenodo](https://zenodo.org/records/19243841) and loaded using the instructions below.
+
 ## Entities
 
 ### GtR API
@@ -76,6 +78,18 @@ Create the database:
 ```bash
 # Once ingested, to load just the database, append "postgres"
 docker compose up -d
+```
+
+## Loading a Database Backup
+
+To load an existing database backup instead of ingesting from scratch:
+
+```bash
+# Start just the postgres container
+docker compose up -d postgres
+
+# Restore the backup
+gunzip -c gtr_backup.sql.gz | docker exec -i gtr-postgres psql -U gtr gtr
 ```
 
 ## Usage
