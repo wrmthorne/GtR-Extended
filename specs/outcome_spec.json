@@ -1,0 +1,519 @@
+{
+  "#type": "flatten",
+  "values": [
+    {
+      "#type": "for_each",
+      "values": "$.publication",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "publication",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.url",
+          "href": "$.href"
+        },
+        "publication": {
+          "outcome_id": "$$.id",
+          "abstract_text": "$.abstractText",
+          "other_information": "$.otherInformation",
+          "journal_title": "$.journalTitle",
+          "date_published": "$.datePublished",
+          "publication_url": "$.publicationUrl",
+          "pub_med_id": "$.pubMedId",
+          "isbn": "$.isbn",
+          "issn": "$.issn",
+          "doi": "$.doi",
+          "author": "$.author",
+          "series_number": "$.seriesNumber",
+          "series_title": "$.seriesTitle",
+          "sub_title": "$.subTitle",
+          "volume_title": "$.volumeTitle",
+          "volume_number": "$.volumeNumber",
+          "issue": "$.issue",
+          "total_pages": "$.totalPages",
+          "edition": "$.edition",
+          "chapter_number": "$.chapterNumber",
+          "chapter_title": "$.chapterTitle",
+          "page_reference": "$.pageReference",
+          "conference_event": "$.conferenceEvent",
+          "conference_location": "$.conferenceLocation",
+          "conference_number": "$.conferenceNumber"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.keyFinding",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "keyFinding",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "key_finding": {
+          "outcome_id": "$$.id",
+          "non_academic_uses": "$.nonAcademicUses",
+          "exploitation_pathways": "$.exploitationPathways",
+          "sectors": "$.sectors.item"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.impactSummary",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "impactSummary",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "impact_summary": {
+          "outcome_id": "$$.id",
+          "summary": "$.summary",
+          "impact_types": "$.impactTypes.item",
+          "beneficiaries": "$.beneficiaries",
+          "contribution_method": "$.contributionMethod",
+          "sector": "$.sector",
+          "first_year_of_impact": "$.firstYearOfImpact"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.collaboration",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "collaboration",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "collaboration": {
+          "outcome_id": "$$.id",
+          "parent_organisation": "$.parentOrganisation",
+          "child_organisation": "$.childOrganisation",
+          "principal_investigator_contribution": "$.principalInvestigatorContribution",
+          "partner_contribution": "$.partnerContribution",
+          "start_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.start"
+            },
+            "format": "yyyy-MM-dd"
+          },
+          "end_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.end"
+            },
+            "format": "yyyy-MM-dd"
+          },
+          "sector": "$.sector",
+          "country": "$.country"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.dissemination",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "dissemination",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "dissemination": {
+          "outcome_id": "$$.id",
+          "form": "$.form",
+          "primary_audience": "$.primaryAudience",
+          "years_of_dissemination": "$.yearsOfDissemination",
+          "results": "$.results",
+          "type_of_presentation": "$.typeOfPresentation",
+          "geographic_reach": "$.geographicReach",
+          "part_of_official_scheme": "$.partOfOfficialScheme"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.futherfunding",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "futherfunding",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "further_funding": {
+          "outcome_id": "$$.id",
+          "narrative": "$.narrative",
+          "organisation": "$.organisation",
+          "department": "$.department",
+          "funding_id": "$.fundingId",
+          "start_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.start"
+            },
+            "format": "yyyy-MM-dd"
+          },
+          "end_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.end"
+            },
+            "format": "yyyy-MM-dd"
+          },
+          "sector": "$.sector",
+          "country": "$.country",
+          "amount": "$.amount.amount",
+          "currency_code": "$.amount.currencyCode"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.intellectualProperty",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "intellectualProperty",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "intellectual_property": {
+          "outcome_id": "$$.id",
+          "protection": "$.protection",
+          "patent_id": "$.patentId",
+          "year_protection_granted": "$.yearProtectionGranted",
+          "licensed": "$.licensed",
+          "patent_url": "$.patentUrl",
+          "start_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.start"
+            },
+            "format": "yyyy-MM-dd"
+          },
+          "end_date": {
+            "#type": "date_format",
+            "value": {
+              "#type": "date_from_millis",
+              "value": "$.end"
+            },
+            "format": "yyyy-MM-dd"
+          }
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.policyInfluence",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "policyInfluence",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "policy_influence": {
+          "outcome_id": "$$.id",
+          "influence": "$.influence",
+          "policy_type": "$.type",
+          "guideline_title": "$.guidelineTitle",
+          "methods": "$.methods",
+          "areas": "$.areas.item",
+          "geographic_reach": "$.geographicReach"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.product",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "product",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "product": {
+          "outcome_id": "$$.id",
+          "stage": "$.stage",
+          "status": "$.status",
+          "clinical_trial": "$.clinicalTrial",
+          "ukcrn_isctn_id": "$.ukcrnIsctnId",
+          "year_development_completed": "$.yearDevelopmentCompleted"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.researchMaterial",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "researchMaterial",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "research_material": {
+          "outcome_id": "$$.id",
+          "software_developed": "$.softwareDeveloped",
+          "software_open_sourced": "$.softwareOpenSourced",
+          "provided_to_others": "$.providedToOthers",
+          "year_first_provided": "$.yearFirstProvided"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.artisticAndCreativeProduct",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "artisticAndCreativeProduct",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "artistic_and_creative_product": {
+          "outcome_id": "$$.id",
+          "year_first_provided": "$.yearFirstProvided"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.researchDatabaseAndModel",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "researchDatabaseAndModel",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "research_database_and_model": {
+          "outcome_id": "$$.id",
+          "provided_to_others": "$.providedToOthers",
+          "year_first_provided": "$.yearFirstProvided"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.softwareAndTechnicalProduct",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "softwareAndTechnicalProduct",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "software_and_technical_product": {
+          "outcome_id": "$$.id",
+          "software_open_sourced": "$.softwareOpenSourced",
+          "open_source_license": "$.openSourceLicense",
+          "provided_to_others": "$.providedToOthers",
+          "year_first_provided": "$.yearFirstProvided"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    },
+    {
+      "#type": "for_each",
+      "values": "$.spinOut",
+      "spec": {
+        "outcome": {
+          "id": "$.id",
+          "outcome_type": "spinOut",
+          "title": "$.title",
+          "description": "$.description",
+          "impact": "$.impact",
+          "supporting_url": "$.supportingUrl",
+          "href": "$.href"
+        },
+        "spin_out": {
+          "outcome_id": "$$.id",
+          "company_name": "$.companyName",
+          "company_description": "$.companyDescription",
+          "website": "$.website",
+          "registration_number": "$.registrationNumber",
+          "year_established": "$.yearEstablished",
+          "ip_exploited": "$.ipExploited",
+          "joint_venture": "$.jointVenture"
+        },
+        "links": {
+          "#type": "for_each",
+          "values": "$.links.link",
+          "spec": {
+            "outcome_id": "$$.id",
+            "href": "$.href",
+            "rel": "$.rel"
+          }
+        }
+      }
+    }
+  ]
+}

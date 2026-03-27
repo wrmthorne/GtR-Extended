@@ -1,0 +1,27 @@
+{
+  "#type": "for_each",
+  "values": "$.fund",
+  "spec": {
+    "fund": {
+      "id": "$.id",
+      "start_date": "$.start",
+      "end_date": "$.end",
+      "category": "$.category",
+      "type": "$.type",
+      "amount": "$.valuePounds.amount",
+      "currency_code": "$.valuePounds.currencyCode",
+      "href": "$.href"
+    },
+    "links": {
+      "#type": "for_each",
+      "values": "$.links.link",
+      "spec": {
+        "fund_id": "$$.id",
+        "href": "$.href",
+        "rel": "$.rel",
+        "start_millis": "$.start",
+        "end_millis": "$.end"
+      }
+    }
+  }
+}

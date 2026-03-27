@@ -1,0 +1,14 @@
+rosetta:
+  transform:
+    glyphs:
+      - name: project_transform
+        type: proteus
+        properties:
+          spec: ./specs/project_spec.json
+          log_missing_paths: true
+          config:
+            properties:
+              base_url: "https://gtr.ukri.org/gtr/api/"
+            path_not_found_to_null: true # Needed for database upserts
+            unbox_singletons: false
+            reader_cache_max_size: 500

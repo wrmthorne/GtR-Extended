@@ -1,0 +1,86 @@
+{
+  "#type": "for_each",
+  "values": "$.project",
+  "spec": {
+    "project": {
+      "id": "$.id",
+      "title": "$.title",
+      "abstract": "$.abstractText",
+      "technical_summary": "$.techAbstractText",
+      "potential_impact": "$.potentialImpact",
+      "status": "$.status",
+      "grant_category": "$.grantCategory",
+      "lead_funder": "$.leadFunder",
+      "lead_organisation_department": "$.leadOrganisationDepartment",
+      "href": "$.href"
+    },
+    "taxonomies": {
+      "#type": "flatten",
+      "values": [
+        {
+          "#type": "for_each",
+          "values": "$.researchTopics.researchTopic",
+          "spec": {
+            "project_id": "$$.id",
+            "taxonomy_type": "research_topic",
+            "label": "$.text",
+            "percentage": "$.percentage"
+          }
+        },
+        {
+          "#type": "for_each",
+          "values": "$.researchSubjects.researchSubject",
+          "spec": {
+            "project_id": "$$.id",
+            "taxonomy_type": "research_subject",
+            "label": "$.text",
+            "percentage": "$.percentage"
+          }
+        },
+        {
+          "#type": "for_each",
+          "values": "$.rcukProgrammes.rcukProgramme",
+          "spec": {
+            "project_id": "$$.id",
+            "taxonomy_type": "rcuk_programme",
+            "label": "$.name"
+          }
+        }
+      ]
+    },
+    "identifiers": {
+      "#type": "for_each",
+      "values": "$.identifiers.identifier",
+      "spec": {
+        "project_id": "$$.id",
+        "identifier_value": "$.value",
+        "identifier_type": "$.type"
+      }
+    },
+    "links": {
+      "#type": "for_each",
+      "values": "$.links.link",
+      "spec": {
+        "project_id": "$$.id",
+        "href": "$.href",
+        "rel": "$.rel",
+        "start_date": {
+          "#type": "date_format",
+          "value": {
+            "#type": "date_from_millis",
+            "value": "$.start"
+          },
+          "format": "d/M/y"
+        },
+        "end_date": {
+          "#type": "date_format",
+          "value": {
+            "#type": "date_from_millis",
+            "value": "$.end"
+          },
+          "format": "d/M/y"
+        }
+      }
+    }
+  }
+}

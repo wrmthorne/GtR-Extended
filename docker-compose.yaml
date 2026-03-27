@@ -1,0 +1,31 @@
+services:
+  postgres:
+    container_name: gtr-postgres
+    image: postgres:16
+    environment:
+      POSTGRES_DB: gtr
+      POSTGRES_USER: gtr
+      POSTGRES_PASSWORD: gtr
+    ports:
+      - "5432:5432"
+    volumes:
+      - gtr-database:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gtr"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  rosetta:
+    ipc: host
+    container_name: proteus
+    image: public.ecr.aws/v3w7q3a1/rosetta:3.2.0-proteus
+    volumes:
+      - ./application.yaml:/rosetta/config/application.yml
+      - ./specs:/specs:ro
+    ports:
+      - "4923:4923"
+    restart: unless-stopped
+
+volumes:
+  gtr-database:

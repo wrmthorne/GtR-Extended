@@ -1,0 +1,24 @@
+{
+  "#type": "for_each",
+  "values": "$.person",
+  "spec": {
+    "person": {
+      "id": "$.id",
+      "first_name": "$.firstName",
+      "surname": "$.surname",
+      "orcid": "$.orcidId",
+      "href": "$.href"
+    },
+    "links": {
+      "#type": "for_each",
+      "values": "$.links.link",
+      "spec": {
+        "person_id": "$$.id",
+        "href": "$.href",
+        "rel": "$.rel",
+        "start_millis": "$.start",
+        "end_millis": "$.end"
+      }
+    }
+  }
+}
